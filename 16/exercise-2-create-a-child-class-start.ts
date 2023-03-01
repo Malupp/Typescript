@@ -3,7 +3,7 @@
  */
 
 class Currency {
-    private name: string;
+    protected name: string;
     private code: string;
     private symbol: string;
 
@@ -27,17 +27,17 @@ class Currency {
 class DetailedCurrency extends Currency {
     // Define a private field named `banknotes`.
     // Set the field type so it can be used to store an array of numbers.
-    private banknotes: [];
+    private banknotes: number[];
 
     // Add a `banknotes` parameter with the same type as the `banknotes` field.
 
-    constructor(name: Currency, code: Currency, symbol: Currency, banknotes: any[]) {
-        // Fix this call to the parent constructor.
+    constructor(name: string, code: string, symbol: string, banknotes: number[]) {
+    // Fix this call to the parent constructor.
 
-        super(name, code, symbol, banknotes);
+        super(name, code, symbol);
 
         // Store the value of the `banknotes` parameter in the corresponding field.
-
+        this.banknotes = banknotes;
 
     }
 
@@ -52,7 +52,7 @@ class DetailedCurrency extends Currency {
 
         // Replace `null` with the value of the `banknotes` field.
 
-        description += string;
+        description += this.banknotes;
 
         console.log(description);
     }
